@@ -4,6 +4,7 @@ import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,9 +19,12 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.OnU
         setContentView(R.layout.activity_main);
         layout = (ConstraintLayout) findViewById(R.id.constraint);
 
+        Log.d("Ness", "MainActivity.onCreate");
+
     }
 
     public void showDialog(View view) {
+        Log.d("Ness", "MainActivity.showDialog");
 //        AlertDialog.Builder builder = new AlertDialog.Builder(this);
 //        builder.setCancelable(false);
 //

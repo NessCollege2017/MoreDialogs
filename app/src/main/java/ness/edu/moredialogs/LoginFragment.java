@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +27,7 @@ public class LoginFragment extends DialogFragment implements View.OnClickListene
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        Log.d("Ness", "LoginFragment.onCreateView");
         return inflater.inflate(R.layout.fragment_login, container, false);
     }
 
@@ -39,10 +41,12 @@ public class LoginFragment extends DialogFragment implements View.OnClickListene
 
         btnCancel.setOnClickListener(this);
         btnLogin.setOnClickListener(this);
+        Log.i("Ness", "LoginFragment.onViewCreated");
     }
 
     @Override
     public void onClick(View v) {
+        Log.e("Ness", "LoginFragment.onClick");
         int id = v.getId();
 
         switch (id){
