@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements LoginFragment.OnUserLoggedInListener{
     ConstraintLayout layout;
 
     @Override
@@ -47,5 +47,9 @@ public class MainActivity extends AppCompatActivity {
 
         LoginFragment f = new LoginFragment();
         f.show(getSupportFragmentManager() ,"loginDialog");
+    }
+
+    public void onUserLoggedIn(String s) {
+
     }
 }
