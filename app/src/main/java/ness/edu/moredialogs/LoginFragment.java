@@ -1,6 +1,7 @@
 package ness.edu.moredialogs;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
@@ -51,13 +52,27 @@ public class LoginFragment extends DialogFragment implements View.OnClickListene
             case R.id.btnLogin:
                 String userName = etUserName.getText().toString();
                 Toast.makeText(getContext(),userName, Toast.LENGTH_SHORT).show();
-
-                OnUserLoggedInListener activity = (OnUserLoggedInListener) getActivity();
-                activity.onUserLoggedIn(userName);
+                listener.onUserLoggedIn(userName);
                 break;
         }
-
         dismiss();
+    }
+
+    OnUserLoggedInListener listener;
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof  OnUserLoggedInListener)
+            listener = (OnUserLoggedInListener) context;
+        else
+            throw new RuntimeException(context.toString() + " Must implement " + OnUserLoggedInListener.class.getSimpleName() );
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        listener = null;
     }
 
     public interface OnUserLoggedInListener{
